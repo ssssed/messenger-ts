@@ -1,9 +1,14 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Register from './pages/Register';
+import Login from './pages/Register';
 
 const App: React.FC = () => {
 	return (
 		<div>
-			<h1>React work!</h1>
+			<Routes>
+				<Route path='/register' element={<Register />} />
+			</Routes>
 		</div>
 	);
 };

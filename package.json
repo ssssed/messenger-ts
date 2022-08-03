@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
