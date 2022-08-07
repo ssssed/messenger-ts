@@ -1,1 +1,5 @@
+@use './styles/utils.scss' as style;
 
+body {
+	background-color: style.$bgCol;
+}

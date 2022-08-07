@@ -1,5 +1,6 @@
 import { Field, Form, Formik, FormikErrors } from 'formik';
 import React from 'react';
+import '../styles/Register.scss';
 
 type initialValues = {
 	login?: string;
@@ -31,24 +32,25 @@ const Register: React.FC = () => {
 	};
 
 	return (
-		<div className='form-page'>
-			<Formik
-				initialValues={initialValues}
-				validate={validate}
-				onSubmit={({ login, password }: initialValues, actions) => {
-					console.log(login, password);
-					actions.setValues({
-						login: '',
-						password: '',
-					});
-					actions.setTouched({
-						login: false,
-						password: false,
-					});
-				}}
-			>
-				{({ errors, touched, isValid, dirty }) => (
-					<Form className='form'>
+		<Formik
+			initialValues={initialValues}
+			validate={validate}
+			onSubmit={({ login, password }: initialValues, actions) => {
+				console.log(login, password);
+				actions.setValues({
+					login: '',
+					password: '',
+				});
+				actions.setTouched({
+					login: false,
+					password: false,
+				});
+			}}
+		>
+			{({ errors, touched, isValid, dirty }) => (
+				<Form className='form'>
+					<div className='form__container'>
+						<h2 className='form__title'>Регистрация</h2>
 						<Field
 							className='form__input'
 							type='email'
@@ -68,10 +70,10 @@ const Register: React.FC = () => {
 						<button type='submit' disabled={!isValid || !dirty}>
 							зарегистрироваться
 						</button>
-					</Form>
-				)}
-			</Formik>
-		</div>
+					</div>
+				</Form>
+			)}
+		</Formik>
 	);
 };
 
