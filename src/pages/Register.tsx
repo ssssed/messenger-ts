@@ -1,11 +1,8 @@
 import { Field, Form, Formik, FormikErrors } from 'formik';
 import React from 'react';
+import ButtonSubmit from '../component/ui/ButtonSubmit';
 import '../styles/Register.scss';
-
-type initialValues = {
-	login?: string;
-	password?: string;
-};
+import { initialValues } from '../types/FormTypes';
 
 const Register: React.FC = () => {
 	const initialValues: initialValues = {
@@ -67,9 +64,10 @@ const Register: React.FC = () => {
 						<span className='form__error'>
 							{touched.password && errors.password}
 						</span>
-						<button type='submit' disabled={!isValid || !dirty}>
-							зарегистрироваться
-						</button>
+						<ButtonSubmit
+							text='зарегистрироваться'
+							isDisabled={!isValid || !dirty}
+						/>
 					</div>
 				</Form>
 			)}
