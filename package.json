@@ -34,11 +34,13 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0"
   },
   "browserslist": [
