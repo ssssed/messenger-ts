@@ -1,9 +1,9 @@
 @use './styles/utils.scss' as style;
 
 body {
-	background-color: style.$bgCol;
-	overflow: hidden;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  background-color: style.$bgCol;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

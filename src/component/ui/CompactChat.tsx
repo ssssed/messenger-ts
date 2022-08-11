@@ -13,7 +13,9 @@ const CompactChat: FC<CompactChatProps> = ({
   const dispatch = useAppDispatch();
   const { isSelect, userId } = useAppSelector(state => state.chat);
   const selectChat = () => {
-    dispatch(toogleSelectChat({ userName: name, userId: id }));
+    dispatch(
+      toogleSelectChat({ userName: name, userId: id, userAvatar: avatar })
+    );
   };
   return (
     <div

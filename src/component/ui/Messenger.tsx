@@ -14,50 +14,46 @@ interface Messege {
 }
 
 const Messenger: FC = () => {
-  const userName = useAppSelector(state => state.chat.userName);
+  const { userName, userAvatar } = useAppSelector(state => state.chat);
+  const myName = useAppSelector(state => state.user.userName);
+  const myAvatar = useAppSelector(state => state.user.avatar);
   const [allMessage, setMessages] = useState<Messege[]>([
     {
       id: 1,
       me: false,
-      avatar:
-        'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
+      avatar: userAvatar,
       text: 'Привет',
       userName: 'Арманчик',
     },
     {
       id: 2,
       me: false,
-      avatar:
-        'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
+      avatar: userAvatar,
       text: 'Я в Ереван приехал',
       userName: 'Арманчик',
     },
     {
       id: 3,
       me: false,
-      avatar:
-        'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
+      avatar: userAvatar,
       text: 'Я теперь всех хочу залить перцем',
       userName: 'Арманчик',
     },
     {
       id: 4,
       me: false,
-      avatar:
-        'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
+      avatar: userAvatar,
       text: 'Абоба',
       userName: 'Арманчик',
     },
     {
       id: 5,
       me: false,
-      avatar:
-        'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
+      avatar: userAvatar,
       text: 'Ща перцовкой в тебя брызну! Понял?',
       userName: 'Арманчик',
     },
   ]);
-  let index = allMessage.length;
   const [message, setMessage] = useState<string>('');
   const handleMessageChange = (e: ChangeEvent<HTMLInputElement>) =>
     setMessage(e.target.value);
@@ -68,11 +64,10 @@ const Messenger: FC = () => {
       ...allMessage,
       {
         id: allMessage.length + 1,
-        avatar:
-          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F236x%2Ffe%2F1d%2F31%2Ffe1d3182a4138c770cb764496531f02a.jpg&f=1&nofb=1',
+        avatar: myAvatar,
         me: true,
         text: message,
-        userName: 'Игорь',
+        userName: myName,
       },
     ]);
     setMessage('');
@@ -80,21 +75,19 @@ const Messenger: FC = () => {
   return (
     <div className='messenger'>
       <div className='messenger__info'>
-        <img
-          src='https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album'
-          alt=''
-          className='messenger__avatar'
-        />
+        <img src={userAvatar} alt='' className='messenger__avatar' />
         <h2 className='messenger__title'>{userName}</h2>
         <span className='messenger__toolbar'>...</span>
       </div>
-      {allMessage.map(ms =>
-        !ms.me ? (
-          <Messege key={ms.id} {...ms} />
-        ) : (
-          <MyMessage key={ms.id} {...ms} />
-        )
-      )}
+      <div className='messenger__container'>
+        {allMessage.map(ms =>
+          !ms.me ? (
+            <Messege key={ms.id} {...ms} />
+          ) : (
+            <MyMessage key={ms.id} {...ms} />
+          )
+        )}
+      </div>
       <div className='messenger__write'>
         <form className='messenger__form' onSubmit={handleSendMessage}>
           <input

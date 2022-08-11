@@ -8,6 +8,7 @@
   background-color: style.$col;
   border-radius: 8px;
   width: 60%;
+  height: 95vh;
   position: relative;
 
   &__info {
@@ -30,6 +31,14 @@
 
   &__toolbar {
     margin: 0 0 0 auto;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 0 0 45px;
+    gap: 15px;
   }
 
   &__write {
