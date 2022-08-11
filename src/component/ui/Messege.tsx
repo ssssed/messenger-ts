@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 import '../../styles/Messege.scss';
-
-interface MessegeProps {
-  avatar: string;
-  text: string;
-}
+import { MessegeProps } from '../../types/Message';
 
 const Messege: FC<MessegeProps> = ({ avatar, text }) => {
   return (

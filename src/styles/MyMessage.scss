@@ -1,0 +1,24 @@
+@use './utils.scss' as style;
+
+.my-messege {
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__container {
+    background-color: style.$yourMesCol;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  &__text {
+    margin: 0;
+  }
+}
