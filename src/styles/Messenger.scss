@@ -1,9 +1,70 @@
+@use './utils.scss' as style;
+
 .messenger {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 15px;
-  background-color: #ffffff;
+  background-color: style.$col;
   border-radius: 8px;
   width: 60%;
+  position: relative;
+
+  &__info {
+    display: flex;
+    padding: 0 0 5px;
+    border-bottom: 1px solid #1d2025;
+  }
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 0 10px 0 0;
+  }
+
+  &__title {
+    color: style.$textCol;
+  }
+
+  &__toolbar {
+    margin: 0 0 0 auto;
+  }
+
+  &__write {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 5px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid style.$textCol;
+    border-radius: 25px;
+    padding: 0 15px;
+    background-color: style.$bgCol;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    padding: 15px;
+  }
+
+  &__input:focus {
+    outline: none;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+
+  &__submit {
+    background-color: transparent;
+    border: 0;
+  }
 }
