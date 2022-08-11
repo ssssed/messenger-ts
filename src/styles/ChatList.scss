@@ -1,5 +1,13 @@
 @use './utils.scss' as style;
 
+.chat-list {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	gap: 10px;
+}
+
 .compact-chat {
 	display: flex;
 	align-items: flex-start;
