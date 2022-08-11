@@ -3,8 +3,14 @@ import { Formik, Field, Form, FormikErrors } from 'formik';
 import ButtonSubmit from '../component/ui/ButtonSubmit';
 import '../styles/Register.scss';
 import { initialValues } from '../types/FormTypes';
+import { useAppDispatch } from '../hook/rtkhook';
+import { toggleLogin } from '../store/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const navigateToMain = () => navigate('/');
 	const initialValues: initialValues = {
 		login: '',
 		password: '',
@@ -30,6 +36,8 @@ const Login: React.FC = () => {
 					login: false,
 					password: false,
 				});
+				dispatch(toggleLogin(true));
+				navigateToMain();
 			}}
 		>
 			{({ errors, touched, isValid, dirty }) => (
