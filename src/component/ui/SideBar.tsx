@@ -13,7 +13,7 @@ const SideBar: React.FC = () => {
 			<Link to="/"><img src={logo} alt='' className='sidebar__logo' /></Link>
 			<div className='sidebar__container'>
 				<Link to='/create-chat'><img src={highliter} alt='' className='sidebar__icon' /></Link>
-				<Link to='/chats'><img src={chat} alt='' className='sidebar__icon' /></Link>
+				<Link to='/'><img src={chat} alt='' className='sidebar__icon' /></Link>
 				<Link to='/profile'><img src={profile} alt='' className='sidebar__icon' /></Link>
 			</div>
 			<div className='sidebar__setting'>

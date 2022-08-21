@@ -8,28 +8,26 @@ import CreateChat from './pages/CreateChat';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <ProtectRoute>
-              <Main />
-            </ProtectRoute>
-          }
-        />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route
-          path='/create-chat'
-          element={
-            <ProtectRoute>
-              <CreateChat />
-            </ProtectRoute>
-          }
-        />
-      </Routes>
-    </div>
+    <Routes>
+      <Route
+        path='/'
+        element={
+          <ProtectRoute>
+            <Main />
+          </ProtectRoute>
+        }
+      />
+      <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login />} />
+      <Route
+        path='/create-chat'
+        element={
+          <ProtectRoute>
+            <CreateChat />
+          </ProtectRoute>
+        }
+      />
+    </Routes>
   );
 };
 

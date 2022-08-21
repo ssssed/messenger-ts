@@ -2,8 +2,10 @@ import { Formik, Form, Field, FormikErrors } from 'formik';
 import React, { FC } from 'react';
 import ButtonSubmit from '../component/ui/ButtonSubmit';
 import { createChatInit } from '../types/CreateChat';
-import '../styles/Register.scss';
 import { useNavigate } from 'react-router-dom';
+import SideBar from '../component/ui/SideBar';
+import '../styles/Register.scss';
+import '../styles/CreateChat.scss';
 
 const CreateChat: FC = () => {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ const CreateChat: FC = () => {
   };
   return (
     <div className='create-chat'>
+      <SideBar />
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -28,7 +31,7 @@ const CreateChat: FC = () => {
         }}
       >
         {({ errors, touched, isValid, dirty }) => (
-          <Form className='form'>
+          <Form className='form' style={{margin: '0 auto'}}>
             <div className='form__container'>
               <h2 className='form__title'>Создать чат</h2>
               <Field
