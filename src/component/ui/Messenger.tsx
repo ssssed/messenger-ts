@@ -26,17 +26,6 @@ const Messenger: FC = () => {
   const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // отправка на сервер сообщения
-    // setMessages([
-    //   ...allMessage,
-    //   {
-    //     id: allMessage.length + 1,
-    //     avatar: myAvatar,
-    //     me: true,
-    //     text: message,
-    //     userName: myName,
-    //   },
-    // ]);
-    console.log(allMessage);
     dispatch(sendMessage({
       id: allMessage.length + 1,
         avatar: myAvatar,
@@ -44,7 +33,6 @@ const Messenger: FC = () => {
         text: message,
         userName: myName,
     }))
-    console.log(allMessage);
     setMessage('');
   };
   return (
