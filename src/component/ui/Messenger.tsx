@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { useAppSelector } from '../../hook/rtkhook';
+import { useAppDispatch, useAppSelector } from '../../hook/rtkhook';
 import '../../styles/Messenger.scss';
 import Messege from './Messege';
 import sendButton from '../../assets/chat.svg';
 import MyMessage from './MyMessage';
+import { sendMessage } from '../../store/chatSlice';
 
 interface Messege {
   id: number;
@@ -14,62 +15,36 @@ interface Messege {
 }
 
 const Messenger: FC = () => {
-  const { userName, userAvatar } = useAppSelector(state => state.chat);
+  const { userName, userAvatar, userId } = useAppSelector(state => state.chat);
+  const allMessage = useAppSelector(state => state.chat.chats[userId - 1].message);
   const myName = useAppSelector(state => state.user.userName);
   const myAvatar = useAppSelector(state => state.user.avatar);
-  const [allMessage, setMessages] = useState<Messege[]>([
-    {
-      id: 1,
-      me: false,
-      avatar: userAvatar,
-      text: 'Привет',
-      userName: 'Арманчик',
-    },
-    {
-      id: 2,
-      me: false,
-      avatar: userAvatar,
-      text: 'Я в Ереван приехал',
-      userName: 'Арманчик',
-    },
-    {
-      id: 3,
-      me: false,
-      avatar: userAvatar,
-      text: 'Я теперь всех хочу залить перцем',
-      userName: 'Арманчик',
-    },
-    {
-      id: 4,
-      me: false,
-      avatar: userAvatar,
-      text: 'Абоба',
-      userName: 'Арманчик',
-    },
-    {
-      id: 5,
-      me: false,
-      avatar: userAvatar,
-      text: 'Ща перцовкой в тебя брызну! Понял?',
-      userName: 'Арманчик',
-    },
-  ]);
+  const dispatch = useAppDispatch();
   const [message, setMessage] = useState<string>('');
   const handleMessageChange = (e: ChangeEvent<HTMLInputElement>) =>
     setMessage(e.target.value);
   const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // отправка на сервер сообщения
-    setMessages([
-      ...allMessage,
-      {
-        id: allMessage.length + 1,
+    // setMessages([
+    //   ...allMessage,
+    //   {
+    //     id: allMessage.length + 1,
+    //     avatar: myAvatar,
+    //     me: true,
+    //     text: message,
+    //     userName: myName,
+    //   },
+    // ]);
+    console.log(allMessage);
+    dispatch(sendMessage({
+      id: allMessage.length + 1,
         avatar: myAvatar,
         me: true,
         text: message,
         userName: myName,
-      },
-    ]);
+    }))
+    console.log(allMessage);
     setMessage('');
   };
   return (

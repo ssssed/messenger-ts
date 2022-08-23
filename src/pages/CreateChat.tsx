@@ -6,9 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import SideBar from '../component/ui/SideBar';
 import '../styles/Register.scss';
 import '../styles/CreateChat.scss';
+import { createChat } from '../store/chatSlice';
+import { useAppDispatch, useAppSelector } from '../hook/rtkhook';
 
 const CreateChat: FC = () => {
+  const date = new Date();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { chats } = useAppSelector(state => state.chat)
   const initialValues: createChatInit = {
     userName: '',
   };
@@ -27,6 +32,7 @@ const CreateChat: FC = () => {
         onSubmit={({ userName }: createChatInit, actions) => {
           console.log(userName);
           console.log('Чат создан');
+          dispatch(createChat({id: chats.length + 1, avatar: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X_GOJwn_pJsMl3RYuDzqLAHaFj%26pid%3DApi&f=1', message: [], lastMessage: '', name: userName, time: `${date.getHours()}:${date.getMinutes()}`}))
           navigate('/');
         }}
       >
