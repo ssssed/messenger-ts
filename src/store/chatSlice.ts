@@ -7,7 +7,6 @@ interface ChatState {
   userAvatar: string;
   userId: number;
   chats: ChatList[];
-  message: Message[];
 }
 
 interface ChatData {
@@ -96,7 +95,6 @@ const initialState: ChatState = {
       ],
     },
   ],
-  message: [],
 };
 
 const chatSlice = createSlice({
@@ -122,9 +120,6 @@ const chatSlice = createSlice({
       ];
       state.chats[state.userId - 1].lastMessage = action.payload.text;
     },
-    getMessage(state, action: PayloadAction<number>) {
-      state.message = state.chats[action.payload - 1].message;
-    },
   },
 });
 
@@ -133,7 +128,6 @@ export const {
   createChat,
   deleteChat,
   sendMessage,
-  getMessage,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;
