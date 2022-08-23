@@ -120,6 +120,9 @@ const chatSlice = createSlice({
       ];
       state.chats[state.userId - 1].lastMessage = action.payload.text;
     },
+    unSelectChat(state, action: PayloadAction<boolean>) {
+      state.isSelect = action.payload;
+    }
   },
 });
 
@@ -128,6 +131,7 @@ export const {
   createChat,
   deleteChat,
   sendMessage,
+  unSelectChat
 } = chatSlice.actions;
 
 export default chatSlice.reducer;
