@@ -66,7 +66,7 @@ const initialState: ChatState = {
       avatar:
         'https://sun7.userapi.com/sun7-14/s/v1/ig2/azBVc-pVggoh13EC9B0Edn16PaVWishjfTQns4SzxBeg6T8MSd4tSMVlwqmQe_uHSw2SzgP6aiH4sEyNviB7BUJz.jpg?size=960x1280&quality=95&type=album',
       name: 'Арманчик',
-      lastMessage: 'Ща перцовкой в тебя брызну! Понял?',
+      lastMessage: 'привет',
       time: '12:23',
       message: [
         {

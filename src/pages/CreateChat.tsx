@@ -23,7 +23,6 @@ const CreateChat: FC = () => {
       errors.userName = 'Поле должно быть заполнено!';
     return errors;
   };
-  
   return (
     <div className='create-chat'>
       <SideBar />
