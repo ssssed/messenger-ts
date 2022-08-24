@@ -8,9 +8,9 @@ import '../styles/Register.scss';
 import '../styles/CreateChat.scss';
 import { createChat } from '../store/chatSlice';
 import { useAppDispatch, useAppSelector } from '../hook/rtkhook';
+import { dateForm } from '../hook/date';
 
 const CreateChat: FC = () => {
-  const date = new Date();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { chats } = useAppSelector(state => state.chat)
@@ -23,6 +23,7 @@ const CreateChat: FC = () => {
       errors.userName = 'Поле должно быть заполнено!';
     return errors;
   };
+  
   return (
     <div className='create-chat'>
       <SideBar />
@@ -32,7 +33,7 @@ const CreateChat: FC = () => {
         onSubmit={({ userName }: createChatInit, actions) => {
           console.log(userName);
           console.log('Чат создан');
-          dispatch(createChat({id: chats.length + 1, avatar: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X_GOJwn_pJsMl3RYuDzqLAHaFj%26pid%3DApi&f=1', message: [], lastMessage: '', name: userName, time: `${date.getHours()}:${date.getMinutes()}`}))
+          dispatch(createChat({id: chats.length + 1, avatar: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X_GOJwn_pJsMl3RYuDzqLAHaFj%26pid%3DApi&f=1', message: [], lastMessage: '', name: userName, time: dateForm(), totaltime: (+dateForm().split(':')[0] * 60 * 60 * 60) + (+dateForm().split(':')[1] * 60 * 60)}))
           navigate('/');
         }}
       >

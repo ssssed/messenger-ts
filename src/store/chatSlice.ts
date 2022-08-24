@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { dateForm, getTimes } from '../hook/date';
 import { ChatList, Message } from '../types/Chat';
 
 interface ChatState {
@@ -28,7 +29,7 @@ const initialState: ChatState = {
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-WmUio3Frbvs_wy4eOH-DgHaFj%26pid%3DApi&f=1',
       name: 'Богдан Богом дараванный',
       lastMessage: 'Богдана здесь не любят',
-      time: '12:00',
+      time: '12:40',
       message: [
         {
           id: 1,
@@ -39,6 +40,7 @@ const initialState: ChatState = {
           text: 'Богдана здесь не любят',
         },
       ],
+      totaltime: 2736000
     },
     {
       id: 2,
@@ -57,6 +59,7 @@ const initialState: ChatState = {
           text: 'Абоба',
         },
       ],
+      totaltime: 2730000
     },
     {
       id: 3,
@@ -75,6 +78,7 @@ const initialState: ChatState = {
           text: 'привет',
         },
       ],
+      totaltime: 2732300
     },
     {
       id: 4,
@@ -93,6 +97,7 @@ const initialState: ChatState = {
           text: 'Здравствуйте! Мы вам одобрили кредит',
         },
       ],
+      totaltime: 2738000
     },
   ],
 };
@@ -119,10 +124,12 @@ const chatSlice = createSlice({
         action.payload,
       ];
       state.chats[state.userId - 1].lastMessage = action.payload.text;
+      state.chats[state.userId - 1].time = dateForm();
+      state.chats[state.userId - 1].totaltime = getTimes()
     },
     unSelectChat(state, action: PayloadAction<boolean>) {
       state.isSelect = action.payload;
-    }
+    },
   },
 });
 
@@ -131,7 +138,7 @@ export const {
   createChat,
   deleteChat,
   sendMessage,
-  unSelectChat
+  unSelectChat,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;

@@ -29,4 +29,5 @@ export type ChatList = {
 	time: string;
 	lastMessage: string;
 	message: Message[];
+	totaltime: number;
 }
