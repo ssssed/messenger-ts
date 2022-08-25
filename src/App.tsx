@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Main from './pages/Main';
 import ProtectRoute from './hoc/ProtectRoute';
 import CreateChat from './pages/CreateChat';
+import Profile from './pages/Profile';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,14 @@ const App: React.FC = () => {
         element={
           <ProtectRoute>
             <CreateChat />
+          </ProtectRoute>
+        }
+      />
+      <Route
+        path='/profile'
+        element={
+          <ProtectRoute>
+            <Profile />
           </ProtectRoute>
         }
       />
