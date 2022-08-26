@@ -1,33 +1,33 @@
 .sidebar {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	overflow: hidden;
-	box-sizing: border-box;
-	padding: 15px;
-	// justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 15px;
+  // justify-content: space-between;
 
-	&__container {
-		margin: auto 0 0;
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
+  &__container {
+    margin: auto 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-	&__icon {
-		width: 30px;
-		height: 30px;
-		background-position: cover;
-		cursor: pointer;
-	}
+  &__icon {
+    width: 30px;
+    height: 30px;
+    background-position: cover;
+    cursor: pointer;
+  }
 
-	&__logo {
-		width: 45px;
-		height: 45px;
-		background-position: cover;
-		cursor: pointer;
-	}
-	&__setting {
-		margin: auto 0 0;
-	}
+  &__logo {
+    width: 45px;
+    height: 45px;
+    background-position: cover;
+    cursor: pointer;
+  }
+  &__setting {
+    margin: auto 0 0;
+  }
 }

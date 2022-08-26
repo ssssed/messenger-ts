@@ -11,11 +11,12 @@ export const dateForm = () => {
 
 export const getTimes = (time?: string | undefined): number => {
   const date = new Date();
-  if(time) {
-    const totalTime = (+time.split(':')[0] * 60 * 60 * 60 * 60) + (+time.split(':')[1] * 60 * 60 * 60);
+  if (time) {
+    const totalTime =
+      +time.split(':')[0] * 60 * 60 * 60 * 60 +
+      +time.split(':')[1] * 60 * 60 * 60;
     return totalTime;
-  }
-  else {
+  } else {
     return date.getTime();
   }
 };

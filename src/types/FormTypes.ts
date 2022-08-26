@@ -1,4 +1,4 @@
 export type initialValues = {
-	login?: string;
-	password?: string;
+  login?: string;
+  password?: string;
 };

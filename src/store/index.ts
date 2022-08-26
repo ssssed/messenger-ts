@@ -3,10 +3,10 @@ import chatSlice from './chatSlice';
 import userSlice from './userSlice';
 
 const store = configureStore({
-	reducer: {
-		user: userSlice,
-		chat: chatSlice,
-	},
+  reducer: {
+    user: userSlice,
+    chat: chatSlice,
+  },
 });
 
 export default store;

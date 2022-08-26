@@ -1,17 +1,17 @@
 export interface CompactChatProps {
-	id?: number;
-	avatar: string;
-	name: string;
-	time: string;
-	lastMessage: string;
+  id?: number;
+  avatar: string;
+  name: string;
+  time: string;
+  lastMessage: string;
 }
 
 export interface Chat {
-	id: number;
-	avatar: string;
-	name: string;
-	time: string;
-	lastMessage: string;
+  id: number;
+  avatar: string;
+  name: string;
+  time: string;
+  lastMessage: string;
 }
 
 export interface Message {
@@ -23,11 +23,11 @@ export interface Message {
 }
 
 export type ChatList = {
-	id: number;
-	avatar: string;
-	name: string;
-	time: string;
-	lastMessage: string;
-	message: Message[];
-	totaltime: number;
-}
+  id: number;
+  avatar: string;
+  name: string;
+  time: string;
+  lastMessage: string;
+  message: Message[];
+  totaltime: number;
+};

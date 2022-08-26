@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useMatchMedia } from '../hoc/useMatchMedia';
 
 interface UserState {
   isLogin: boolean;
@@ -28,10 +27,11 @@ const todoSlice = createSlice({
     },
     setDesktopVersion(state, action: PayloadAction<void>) {
       state.isMobile = false;
-    }
+    },
   },
 });
 
-export const { toggleLogin, setMobileVersion, setDesktopVersion } = todoSlice.actions;
+export const { toggleLogin, setMobileVersion, setDesktopVersion } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

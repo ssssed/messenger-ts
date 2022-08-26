@@ -1,24 +1,24 @@
 @use '../styles/utils.scss' as style;
 
 .button {
-	width: 320px;
-	height: 44px;
-	border: 0;
-	border-radius: 22px;
-	cursor: pointer;
-	&_border-gradient {
-		color: style.$borderGradCol;
-		border: 2px solid style.$borderGradCol;
-		background-color: transparent;
-	}
+  width: 320px;
+  height: 44px;
+  border: 0;
+  border-radius: 22px;
+  cursor: pointer;
+  &_border-gradient {
+    color: style.$borderGradCol;
+    border: 2px solid style.$borderGradCol;
+    background-color: transparent;
+  }
 
-	&_gradient {
-		color: style.$col;
-		background: style.$grad;
-	}
+  &_gradient {
+    color: style.$col;
+    background: style.$grad;
+  }
 
-	&_disabled {
-		background-color: gray;
-		pointer-events: none;
-	}
+  &_disabled {
+    background-color: gray;
+    pointer-events: none;
+  }
 }

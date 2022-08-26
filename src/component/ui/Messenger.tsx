@@ -16,7 +16,9 @@ interface Messege {
 
 const Messenger: FC = () => {
   const { userName, userAvatar, userId } = useAppSelector(state => state.chat);
-  const allMessage = useAppSelector(state => state.chat.chats[userId - 1].message);
+  const allMessage = useAppSelector(
+    state => state.chat.chats[userId - 1].message
+  );
   const myName = useAppSelector(state => state.user.userName);
   const myAvatar = useAppSelector(state => state.user.avatar);
   const dispatch = useAppDispatch();
@@ -26,13 +28,15 @@ const Messenger: FC = () => {
   const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // отправка на сервер сообщения
-    dispatch(sendMessage({
-      id: allMessage.length + 1,
+    dispatch(
+      sendMessage({
+        id: allMessage.length + 1,
         avatar: myAvatar,
         me: true,
         text: message,
         userName: myName,
-    }))
+      })
+    );
     setMessage('');
   };
   return (

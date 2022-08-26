@@ -1,36 +1,36 @@
 @use '../styles/utils.scss' as style;
 
 .form {
-	padding: 100px 0 0;
-	&__title {
-		margin: 0;
-	}
+  padding: 100px 0 0;
+  &__title {
+    margin: 0;
+  }
 
-	&__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		box-sizing: border-box;
-		border-radius: 8px;
-		gap: 20px;
-		max-width: 380px;
-		width: 100%;
-		margin: 0 auto;
-		background-color: style.$col;
-		padding: 40px 30px;
-	}
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    gap: 20px;
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: style.$col;
+    padding: 40px 30px;
+  }
 
-	&__input {
-		max-width: 320px;
-		width: 100%;
-		padding: 12px 15px;
-		border: 1px solid rgba(31, 32, 65, 0.25);
-		border-radius: 4px;
-	}
+  &__input {
+    max-width: 320px;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+  }
 
-	&__error {
-		min-height: 24px;
-		color: red;
-	}
+  &__error {
+    min-height: 24px;
+    color: red;
+  }
 }

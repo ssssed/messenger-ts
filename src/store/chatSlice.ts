@@ -40,7 +40,7 @@ const initialState: ChatState = {
           text: 'Богдана здесь не любят',
         },
       ],
-      totaltime: 2736000
+      totaltime: 2736000,
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ const initialState: ChatState = {
           text: 'Абоба',
         },
       ],
-      totaltime: 2730000
+      totaltime: 2730000,
     },
     {
       id: 3,
@@ -78,7 +78,7 @@ const initialState: ChatState = {
           text: 'привет',
         },
       ],
-      totaltime: 2732300
+      totaltime: 2732300,
     },
     {
       id: 4,
@@ -97,7 +97,7 @@ const initialState: ChatState = {
           text: 'Здравствуйте! Мы вам одобрили кредит',
         },
       ],
-      totaltime: 2738000
+      totaltime: 2738000,
     },
   ],
 };
@@ -116,7 +116,7 @@ const chatSlice = createSlice({
       state.chats.push(action.payload);
     },
     deleteChat(state, action: PayloadAction<ChatList>) {
-      state.chats = state.chats.filter((chat) => chat.id !== action.payload.id);
+      state.chats = state.chats.filter(chat => chat.id !== action.payload.id);
     },
     sendMessage(state, action: PayloadAction<Message>) {
       state.chats[state.userId - 1].message = [
@@ -125,7 +125,7 @@ const chatSlice = createSlice({
       ];
       state.chats[state.userId - 1].lastMessage = action.payload.text;
       state.chats[state.userId - 1].time = dateForm();
-      state.chats[state.userId - 1].totaltime = getTimes()
+      state.chats[state.userId - 1].totaltime = getTimes();
     },
     unSelectChat(state, action: PayloadAction<boolean>) {
       state.isSelect = action.payload;

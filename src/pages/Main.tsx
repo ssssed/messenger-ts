@@ -8,17 +8,17 @@ import { unSelectChat } from '../store/chatSlice';
 import '../styles/Main.scss';
 
 const Main: React.FC = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const isSelect = useAppSelector(state => state.chat.isSelect);
   const handleEscapeCloseChat = useCallback((e: KeyboardEvent) => {
-    if(e.key === 'Escape') dispatch(unSelectChat(false))
-  }, [])
+    if (e.key === 'Escape') dispatch(unSelectChat(false));
+  }, []);
   useEffect(() => {
-    document.addEventListener('keydown', handleEscapeCloseChat)
+    document.addEventListener('keydown', handleEscapeCloseChat);
     return () => {
-      document.removeEventListener('keydown', handleEscapeCloseChat)
-    }
-  }, [])
+      document.removeEventListener('keydown', handleEscapeCloseChat);
+    };
+  }, []);
   return (
     <div className='main'>
       <SideBar />

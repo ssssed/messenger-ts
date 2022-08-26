@@ -13,7 +13,7 @@ import { dateForm } from '../hook/date';
 const CreateChat: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { chats } = useAppSelector(state => state.chat)
+  const { chats } = useAppSelector(state => state.chat);
   const initialValues: createChatInit = {
     userName: '',
   };
@@ -32,12 +32,25 @@ const CreateChat: FC = () => {
         onSubmit={({ userName }: createChatInit, actions) => {
           console.log(userName);
           console.log('Чат создан');
-          dispatch(createChat({id: chats.length + 1, avatar: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X_GOJwn_pJsMl3RYuDzqLAHaFj%26pid%3DApi&f=1', message: [], lastMessage: '', name: userName, time: dateForm(), totaltime: (+dateForm().split(':')[0] * 60 * 60 * 60) + (+dateForm().split(':')[1] * 60 * 60)}))
+          dispatch(
+            createChat({
+              id: chats.length + 1,
+              avatar:
+                'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X_GOJwn_pJsMl3RYuDzqLAHaFj%26pid%3DApi&f=1',
+              message: [],
+              lastMessage: '',
+              name: userName,
+              time: dateForm(),
+              totaltime:
+                +dateForm().split(':')[0] * 60 * 60 * 60 +
+                +dateForm().split(':')[1] * 60 * 60,
+            })
+          );
           navigate('/');
         }}
       >
         {({ errors, touched, isValid, dirty }) => (
-          <Form className='form' style={{margin: '0 auto'}}>
+          <Form className='form' style={{ margin: '0 auto' }}>
             <div className='form__container'>
               <h2 className='form__title'>Создать чат</h2>
               <Field

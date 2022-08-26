@@ -6,18 +6,18 @@ import { getTimes } from '../../hook/date';
 
 const ChatList: FC = () => {
   const { chats } = useAppSelector(state => state.chat);
-  const [allChats, setChats] = useState([...chats].sort((a, b) => b.totaltime - a.totaltime ));
+  const [allChats, setChats] = useState(
+    [...chats].sort((a, b) => b.totaltime - a.totaltime)
+  );
   const handleSortedChatList = useCallback(() => {
-    setChats([...chats].sort((a, b) => b.totaltime - a.totaltime))
-  }, [chats])
-  useEffect(()=> {
-    handleSortedChatList()
-  }, [chats])
+    setChats([...chats].sort((a, b) => b.totaltime - a.totaltime));
+  }, [chats]);
+  useEffect(() => {
+    handleSortedChatList();
+  }, [chats]);
   return (
     <div className='chat-list'>
-      {chats && allChats.map(chat => (
-        <CompactChat key={chat.id} {...chat} />
-      ))}
+      {chats && allChats.map(chat => <CompactChat key={chat.id} {...chat} />)}
     </div>
   );
 };
