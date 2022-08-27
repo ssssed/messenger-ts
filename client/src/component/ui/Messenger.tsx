@@ -23,21 +23,26 @@ const Messenger: FC = () => {
   const myAvatar = useAppSelector(state => state.user.avatar);
   const dispatch = useAppDispatch();
   const [message, setMessage] = useState<string>('');
+  const [isError, setError] = useState<boolean>(false);
   const handleMessageChange = (e: ChangeEvent<HTMLInputElement>) =>
     setMessage(e.target.value);
   const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // отправка на сервер сообщения
-    dispatch(
-      sendMessage({
-        id: allMessage.length + 1,
-        avatar: myAvatar,
-        me: true,
-        text: message,
-        userName: myName,
-      })
-    );
-    setMessage('');
+    if (message.trim().length > 0) {
+      dispatch(
+        sendMessage({
+          id: allMessage.length + 1,
+          avatar: myAvatar,
+          me: true,
+          text: message,
+          userName: myName,
+        })
+      );
+      setError(false);
+      setMessage('');
+    } else {
+      setError(true);
+    }
   };
   return (
     <div className='messenger'>
@@ -56,7 +61,10 @@ const Messenger: FC = () => {
         )}
       </div>
       <div className='messenger__write'>
-        <form className='messenger__form' onSubmit={handleSendMessage}>
+        <form
+          className={`messenger__form ${isError && 'messenger__form_error'}`}
+          onSubmit={handleSendMessage}
+        >
           <input
             type='text'
             className='messenger__input'

@@ -16,12 +16,15 @@
   border: 1px solid style.$col;
   background-color: style.$col;
   border-radius: 8px;
+  height: 60px;
   color: black;
+  align-items: center;
   &__container {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
   }
 
   &__info {
@@ -36,9 +39,11 @@
   }
 
   &__last-message,
-  &__name,
-  &__time {
+  &__name {
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   &__time {
