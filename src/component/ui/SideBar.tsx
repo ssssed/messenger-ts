@@ -36,7 +36,7 @@ const SideBar: React.FC = () => {
         </Link>
       </div>
       <div className='sidebar__setting'>
-        <Link to='/setting'>
+        <Link to='/settings'>
           <img src={setting} alt='' className='sidebar__icon' />
         </Link>
       </div>

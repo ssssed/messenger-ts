@@ -1,0 +1,17 @@
+.settings-list__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+}
+
+.change-setting {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  > input {
+    max-width: 300px;
+    max-height: 74px;
+  }
+}

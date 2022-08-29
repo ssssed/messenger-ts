@@ -33,4 +33,11 @@
     min-height: 24px;
     color: red;
   }
+
+  &_settings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
 }
