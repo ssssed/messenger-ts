@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Dialog = () => {
   return (
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center gap-2 cursor-pointer">
       <Image src="/person.png" alt="person" width={40} height={40} />
       <div className="flex flex-row">
         <div className="flex flex-col items-center gap-[6px]">
