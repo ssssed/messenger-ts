@@ -2,8 +2,14 @@ import Image from "next/image";
 
 const Dialog = () => {
   return (
-    <div className="flex flex-row items-center gap-2 cursor-pointer">
-      <Image src="/person.png" alt="person" width={40} height={40} />
+    <div className="flex flex-row items-center gap-2 cursor-pointer w-[270px]">
+      <Image
+        className="w-10 h-10"
+        src="/person.png"
+        alt="person"
+        width={40}
+        height={40}
+      />
       <div className="flex flex-row">
         <div className="flex flex-col items-center gap-[6px]">
           <h4 className="leading-5 text-sm text-[#0E1114] text-left w-full">
@@ -18,7 +24,7 @@ const Dialog = () => {
             cillum sint consectetur cupidatat.
           </p>
         </div>
-        <div className="flex flex-col ml-auto items-center gap-[6px]">
+        <div className="flex flex-col ml-auto items-center gap-[6px] w-[46px]">
           <span className="text-right text-xs text-[#8FA0AF] whitespace-nowrap">
             10:10 AM
           </span>
