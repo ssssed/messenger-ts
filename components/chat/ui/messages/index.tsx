@@ -1,4 +1,5 @@
-import { Message, MessageInput } from "@/components/chat/ui";
+import { Message } from "@/components/chat/ui";
+import { MessageInputWrapper } from "@/components/chat/logic";
 
 const messages = [
   {
@@ -65,7 +66,7 @@ const Messages = () => {
           <Message key={ms.id} />
         ))}
       </div>
-      <MessageInput />
+      <MessageInputWrapper />
     </div>
   );
 };
