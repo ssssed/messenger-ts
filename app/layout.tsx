@@ -1,6 +1,7 @@
 import { Header } from "@/components/ui-ud/ui";
 import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Providers } from "@/components/ui-ud/logic";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 export const metadata = {
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={plusJakartaSans.className + " min-h-screen"}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

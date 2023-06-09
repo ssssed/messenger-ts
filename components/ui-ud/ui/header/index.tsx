@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const session = useSession();
+  console.log(session);
+
   return (
     <header
       className="sticky top-0 h-14 px-6 flex flex-row items-center 
@@ -13,12 +19,27 @@ const Header = () => {
         <Image src="/logo.svg" alt="logo" width={159} height={56} />
       </Link>
       <div className="ml-auto flex items-center flex-row gap-[9.5px]">
-        <Link href="/settings">
-          <Image src="/setting.svg" alt="setting" height={24} width={24} />
-        </Link>
-        <Link href="/profile">
-          <Image src="/person.png" alt="user image" width={32} height={32} />
-        </Link>
+        {session?.data ? (
+          <>
+            <Link href="/settings">
+              <Image src="/setting.svg" alt="setting" height={24} width={24} />
+            </Link>
+            <Link href="/profile">
+              <Image
+                src={session.data.user?.image || "/person.png"}
+                alt="user image"
+                style={{ borderRadius: "50%" }}
+                width={32}
+                height={32}
+              />
+            </Link>
+            <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>
+              Выйти
+            </Link>
+          </>
+        ) : (
+          <Link href="/api/auth/signin">Войти</Link>
+        )}
       </div>
     </header>
   );

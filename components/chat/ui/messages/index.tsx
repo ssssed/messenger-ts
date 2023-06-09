@@ -1,69 +1,17 @@
-import { Message } from "@/components/chat/ui";
-import { MessageInputWrapper } from "@/components/chat/logic";
-
-const messages = [
-  {
-    id: 1,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:38 AM",
-  },
-  {
-    id: 2,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:39 AM",
-  },
-  {
-    id: 3,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:40 AM",
-  },
-  {
-    id: 4,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:38 AM",
-  },
-  {
-    id: 5,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:39 AM",
-  },
-  {
-    id: 6,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:40 AM",
-  },
-  {
-    id: 7,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:38 AM",
-  },
-  {
-    id: 8,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:39 AM",
-  },
-  {
-    id: 9,
-    text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-    name: "Caesar",
-    time: "4:40 AM",
-  },
-];
+import { MessageInputWrapper, MessageWrapper } from "@/components/chat/logic";
+import { messages } from "@/utils/static-data";
 
 const Messages = () => {
   return (
-    <div className="flex flex-col px-20 pt-2 pb-10 w-full">
-      <div className="flex flex-col gap-6 h-5/6 mb-5 overflow-auto">
+    <div className="flex flex-col px-10 pt-2 pb-10 w-full">
+      <div className="flex flex-col px-4 gap-6 h-5/6 mb-5 overflow-auto">
         {messages.map((ms) => (
-          <Message key={ms.id} />
+          <MessageWrapper
+            key={ms.id}
+            author={ms.author}
+            time={ms.time}
+            message={ms.message}
+          />
         ))}
       </div>
       <MessageInputWrapper />

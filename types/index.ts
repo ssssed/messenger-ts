@@ -1,3 +1,7 @@
-import type { IMessageInputProps } from "./prop-components";
+import type {
+  IMessageInputProps,
+  IMessageProps,
+  IMessageWrapperProps,
+} from "./prop-components";
 
-export { IMessageInputProps };
+export { IMessageInputProps, IMessageProps, IMessageWrapperProps };
