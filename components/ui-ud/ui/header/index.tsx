@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { memo, useCallback } from 'react';
 
-const Header = memo(() => {
+const Header = () => {
   const session = useSession();
 
   const handleSignOut = useCallback(() => signOut({ callbackUrl: '/' }), []);
@@ -59,6 +59,6 @@ const Header = memo(() => {
       </div>
     </header>
   );
-});
+};
 
-export default Header;
+export default memo(Header);

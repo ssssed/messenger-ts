@@ -2,7 +2,7 @@ import { Dialog } from '@/components/chat/ui';
 import { IDialogsProps } from '@/types';
 import { FC, memo } from 'react';
 
-const Dialogs: FC<IDialogsProps> = memo(({ dialogs, onSelect }) => {
+const Dialogs: FC<IDialogsProps> = ({ dialogs, onSelect }) => {
   return (
     <div
       className='flex
@@ -22,6 +22,6 @@ const Dialogs: FC<IDialogsProps> = memo(({ dialogs, onSelect }) => {
       ))}
     </div>
   );
-});
+};
 
-export default Dialogs;
+export default memo(Dialogs);

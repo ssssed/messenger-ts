@@ -2,9 +2,9 @@
 
 import { Dialogs, Messages } from '@/components/chat/ui';
 import { IChatWrapper, IFetchDialogs } from '@/types';
-import { FC, memo, useCallback, useEffect, useState } from 'react';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 
-const ChatWrapper: FC<IChatWrapper> = memo(({ dialogs }) => {
+const ChatWrapper: FC<IChatWrapper> = ({ dialogs }) => {
   const [selectedChat, setSelectedChat] = useState<IFetchDialogs>();
   console.log('render');
 
@@ -27,14 +27,14 @@ const ChatWrapper: FC<IChatWrapper> = memo(({ dialogs }) => {
     };
   }, [handleCloseSelectedChat]);
   return (
-    <>
+    <React.Fragment>
       <Dialogs
         dialogs={dialogs}
         onSelect={handleSelectChat}
       />
       <Messages selectedChat={selectedChat!} />
-    </>
+    </React.Fragment>
   );
-});
+};
 
-export default ChatWrapper;
+export default memo(ChatWrapper);
