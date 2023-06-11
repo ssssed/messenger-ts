@@ -1,7 +1,9 @@
 import { IFetchDialogs } from "@/types";
+import { headers as Headers } from "next/headers";
 
 export const getDialogs = async (): Promise<{ dialogs: IFetchDialogs[] }> => {
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/dialogs`, {
+    const headers = Headers();
+    const response = await fetch(`http://${headers.get("host")}/api/dialogs`, {
         next: {
             revalidate: 10
         }

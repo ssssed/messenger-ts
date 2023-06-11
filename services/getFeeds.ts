@@ -1,10 +1,11 @@
 import { IFetchFeed } from "@/types";
+import { headers as Headers } from "next/headers";
 
 export const getFeeds = async (): Promise<IFetchFeed[]> => {
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/feed`, {
-        cache: 'no-store',
+    const headers = Headers();
+    const response = await fetch(`http://${headers.get("host")}/api/feed`, {
         next: {
-            revalidate: 0
+            revalidate: 10
         }
     });
 
