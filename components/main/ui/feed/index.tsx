@@ -19,6 +19,7 @@ const Feed: FC<IFetchFeed> = ({
           src={group_image}
           alt={group_name}
           className='rounded-full'
+          loading='lazy'
           width={40}
           height={40}
         />

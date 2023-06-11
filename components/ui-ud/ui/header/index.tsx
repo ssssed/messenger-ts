@@ -3,10 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
+import { memo, useCallback } from 'react';
 
-const Header = () => {
+const Header = memo(() => {
   const session = useSession();
-  console.log(session);
+
+  const handleSignOut = useCallback(() => signOut({ callbackUrl: '/' }), []);
 
   return (
     <header
@@ -46,7 +48,7 @@ const Header = () => {
             </Link>
             <Link
               href='#'
-              onClick={() => signOut({ callbackUrl: '/' })}
+              onClick={handleSignOut}
             >
               Выйти
             </Link>
@@ -57,6 +59,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;
