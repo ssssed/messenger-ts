@@ -1,6 +1,6 @@
 import { Dialog } from '@/components/chat/ui';
 import { IDialogsProps } from '@/types';
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
 const Dialogs: FC<IDialogsProps> = ({ dialogs, onSelect }) => {
   return (
@@ -24,4 +24,4 @@ const Dialogs: FC<IDialogsProps> = ({ dialogs, onSelect }) => {
   );
 };
 
-export default memo(Dialogs);
+export default Dialogs;

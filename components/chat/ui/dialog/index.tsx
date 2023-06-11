@@ -52,4 +52,4 @@ const Dialog: FC<IDialogProps> = ({
   );
 };
 
-export default memo(Dialog);
+export default Dialog;

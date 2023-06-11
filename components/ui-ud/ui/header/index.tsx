@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 
 const Header = () => {
   const session = useSession();
@@ -61,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default Header;
