@@ -1,10 +1,15 @@
-"use client";
+'use client';
 
-import { ChangeEvent, FormEvent, useState } from "react";
-import { MessageInput } from "@/components/chat/ui";
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { MessageInput } from '@/components/chat/ui';
+import { IMessageInputWrapperProps } from '@/types';
+import { useSession } from 'next-auth/react';
 
-const MessageInputWrapper = () => {
-  const [messageText, setMessageText] = useState<string>("");
+const MessageInputWrapper: FC<IMessageInputWrapperProps> = ({
+  onAddMessage,
+}) => {
+  const [messageText, setMessageText] = useState<string>('');
+  const session = useSession();
   const [file, setFile] = useState<File | null>(null);
 
   const handleMessageTextChange = (e: ChangeEvent<HTMLInputElement>) =>
@@ -12,8 +17,18 @@ const MessageInputWrapper = () => {
 
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(messageText, file?.name);
-    setMessageText("");
+    const date = new Date();
+
+    onAddMessage({
+      id: Date.now(),
+      time: `${date.getHours().toString().padStart(2, '0')}:${date
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}`,
+      author: session.data?.user?.name as string,
+      message: messageText,
+    });
+    setMessageText('');
     setFile(null);
   };
 

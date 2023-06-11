@@ -14,3 +14,13 @@ export interface IFetchFeed {
     post_image: string;
     time: string;
 }
+
+export interface IFetchDialogs {
+    id: number;
+    image: string;
+    name: string;
+    lastname: string;
+    lastmessage: string;
+    count: number;
+    time: string;
+}
