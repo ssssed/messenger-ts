@@ -1,7 +1,20 @@
-export default function Home() {
+import { Feed } from '@/components/main/ui';
+import { getFeeds } from '@/services/getFeeds';
+
+export default async function Home() {
+  const feeds = await getFeeds();
+  console.log('feeds length', feeds.length);
+
   return (
-    <main className="flex flex-row h-[calc(100vh-56px)]">
-      <h1>Главная страница</h1>
+    <main className='flex flex-col h-[calc(100vh-56px)]'>
+      <div className='flex flex-col gap-[15px] container max-w-[510px] mx-auto py-8'>
+        {feeds.map(feed => (
+          <Feed
+            key={feed.id}
+            {...feed}
+          />
+        ))}
+      </div>
     </main>
   );
 }

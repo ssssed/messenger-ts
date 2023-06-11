@@ -4,4 +4,6 @@ import type {
   IMessageWrapperProps,
 } from "./prop-components";
 
-export { IMessageInputProps, IMessageProps, IMessageWrapperProps };
+import type { IFetchUser, IFetchFeed } from "./models"
+
+export { IMessageInputProps, IMessageProps, IMessageWrapperProps, IFetchUser, IFetchFeed };
