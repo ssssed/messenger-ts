@@ -26,10 +26,6 @@ export interface IDialogsProps {
   onSelect: (dialog: IFetchDialogs) => void;
 }
 
-export interface IChatWrapper {
-  dialogs: IFetchDialogs[];
-}
-
 export interface IDialogProps extends IFetchDialogs {
   onClick: () => void;
 }

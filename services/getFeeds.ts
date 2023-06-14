@@ -1,15 +1,13 @@
 import { IFetchFeed } from "@/types";
-import { headers as Headers } from "next/headers";
 
 export const getFeeds = async (): Promise<IFetchFeed[]> => {
-    const headers = Headers();
-    const response = await fetch(`http://${headers.get("host")}/api/feed`, {
+    const response = await fetch(`${process.env.BASE_URL}/feeds`, {
         next: {
-            revalidate: 10
+            revalidate: 10,
         }
     });
 
-    if (!response.ok) {
+    if (response.status !== 200) {
         throw new Error("Unable to fetch feeds")
     }
     return response.json();

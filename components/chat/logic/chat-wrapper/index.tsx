@@ -1,12 +1,13 @@
 'use client';
 
 import { Dialogs, Messages } from '@/components/chat/ui';
-import { IChatWrapper, IFetchDialogs } from '@/types';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import { getDialogs } from '@/services/getDialogs';
+import { IFetchDialogs } from '@/types';
+import React, { useCallback, useEffect, useState } from 'react';
 
-const ChatWrapper: FC<IChatWrapper> = ({ dialogs }) => {
+const ChatWrapper = () => {
   const [selectedChat, setSelectedChat] = useState<IFetchDialogs>();
-  console.log('render');
+  const [dialogs, setDialogs] = useState<IFetchDialogs[]>([]);
 
   const handleSelectChat = (dialog: IFetchDialogs) => {
     setSelectedChat(dialog);
@@ -19,13 +20,19 @@ const ChatWrapper: FC<IChatWrapper> = ({ dialogs }) => {
     }
   }, []);
 
+  const handleGetDialogs = useCallback(async () => {
+    const { dialogs } = await getDialogs();
+    setDialogs(dialogs);
+  }, []);
+
   useEffect(() => {
+    handleGetDialogs();
     window.addEventListener('keydown', handleCloseSelectedChat);
 
     return () => {
       window.removeEventListener('keydown', handleCloseSelectedChat);
     };
-  }, [handleCloseSelectedChat]);
+  }, [handleCloseSelectedChat, handleGetDialogs]);
   return (
     <React.Fragment>
       <Dialogs

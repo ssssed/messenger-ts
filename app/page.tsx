@@ -3,7 +3,6 @@ import { getFeeds } from '@/services/getFeeds';
 
 export default async function Home() {
   const feeds = await getFeeds();
-  console.log('feeds length', feeds.length);
 
   return (
     <main className='flex flex-col h-[calc(100vh-56px)]'>
